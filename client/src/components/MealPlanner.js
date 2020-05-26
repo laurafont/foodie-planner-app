@@ -45,7 +45,7 @@ class mealPlanner extends React.Component {
                 justify="space-evenly"
                 alignItems="center"
               >
-                <Grid container item xs={12} spacing={3}>
+                <Grid container item xs={12} spacing={1}>
                   {" "}
                   {/* this is a row */}
                   <React.Fragment>
@@ -139,7 +139,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                   </React.Fragment>
                 </Grid>
-                <Grid container item xs={12} spacing={6}>
+                <Grid container item xs={12} spacing={2}>
                   {" "}
                   {/* this is a row */}
                   <React.Fragment>
@@ -250,7 +250,7 @@ class mealPlanner extends React.Component {
                 justify="space-evenly"
                 alignItems="center"
               >
-                <Grid container item xs={12} spacing={6}>
+                <Grid container item xs={12} spacing={2}>
                   {" "}
                   {/* this is a row */}
                   <React.Fragment>
@@ -361,7 +361,7 @@ class mealPlanner extends React.Component {
                 justify="space-evenly"
                 alignItems="center"
               >
-                <Grid container item xs={12} spacing={6}>
+                <Grid container item xs={12} spacing={2}>
                   {" "}
                   {/* this is a row */}
                   <React.Fragment>
