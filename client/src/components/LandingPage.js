@@ -66,7 +66,7 @@ export default class LandingPage extends Component {
     });
   };
 
-  submit() {
+  checkIntolerances() {
     if (this.state.eggValue === true) {
       this.setState({
         intolerances: "egg",
@@ -106,6 +106,9 @@ export default class LandingPage extends Component {
         intolerances: "dairy, gluten",
       });
     }
+  }
+
+  checkIngredients() {
     if (!this.state.excludeIngredientsValue) {
       this.setState({
         excludeIngredients: 0,
@@ -115,6 +118,9 @@ export default class LandingPage extends Component {
         excludeIngredients: this.state.excludeIngredientValue,
       });
     }
+  }
+
+  checkCuisine() {
     if (!this.state.excludeCuisineValue) {
       this.setState({
         cuisine: 0,
@@ -124,11 +130,17 @@ export default class LandingPage extends Component {
         cuisine: this.state.cuisineValue,
       });
     }
-    this.setState({
+  }
+
+  async submit() {
+    this.checkIntolerances();
+    await this.checkIngredients();
+    await this.checkCuisine();
+    await this.setState({
       diet: this.state.dietValue,
       setOpen: true,
     });
-    fetch(
+    await fetch(
       `/recipe/search/${this.state.diet}/${this.state.excludeIngredients}/${this.state.intolerances}/${this.state.cuisine}`
     )
       .then((response) => response.json())
