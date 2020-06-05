@@ -163,7 +163,7 @@ export default class LandingPage extends Component {
   }
 
   extraFetch() {
-    const array = this.state.recipes;
+    const array = this.state.recipes.results;
     if (array.length !== 21) {
       fetch(
         `/recipe/search/0/0/0/0`
