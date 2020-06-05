@@ -32,8 +32,8 @@ export default class LandingPage extends Component {
       eggValue: false,
       dairyValue: false,
       glutenValue: false,
-      excludeIngredientValue: "",
-      cuisineValue: "",
+      excludeIngredientValue: 0,
+      cuisineValue: 0,
       diet: "",
       excludeIngredients: "",
       intolerances: "",
@@ -67,6 +67,15 @@ export default class LandingPage extends Component {
   };
 
   checkIntolerances() {
+    if (
+      this.state.eggValue === false &&
+      this.state.dairyValue === false &&
+      this.state.glutenValue === false
+    ) {
+      this.setState({
+        intolerances: 0,
+      });
+    }
     if (this.state.eggValue === true) {
       this.setState({
         intolerances: "egg",
@@ -84,7 +93,7 @@ export default class LandingPage extends Component {
     }
     if (this.state.eggValue === true && this.state.dairyValue === true) {
       this.setState({
-        intolerances: "egg, dairy",
+        intolerances: "egg,dairy",
       });
     }
     if (
@@ -93,23 +102,23 @@ export default class LandingPage extends Component {
       this.state.glutenValue === true
     ) {
       this.setState({
-        intolerances: "egg, dairy, gluten",
+        intolerances: "egg,dairy,gluten",
       });
     }
     if (this.state.eggValue === true && this.state.glutenValue === true) {
       this.setState({
-        intolerances: "egg, gluten",
+        intolerances: "egg,gluten",
       });
     }
     if (this.state.dairyValue === true && this.state.glutenValue === true) {
       this.setState({
-        intolerances: "dairy, gluten",
+        intolerances: "dairy,gluten",
       });
     }
   }
 
   checkIngredients() {
-    if (!this.state.excludeIngredientsValue) {
+    if (this.state.excludeIngredientsValue === 0) {
       this.setState({
         excludeIngredients: 0,
       });
@@ -121,7 +130,7 @@ export default class LandingPage extends Component {
   }
 
   checkCuisine() {
-    if (!this.state.excludeCuisineValue) {
+    if (this.state.excludeCuisineValue === 0) {
       this.setState({
         cuisine: 0,
       });
@@ -133,13 +142,16 @@ export default class LandingPage extends Component {
   }
 
   async submit() {
-    this.checkIntolerances();
-    await this.checkIngredients();
-    await this.checkCuisine();
-    await this.setState({
+    
+  //  await this.checkIngredients();
+  //  await this.checkCuisine();
+    this.setState({
       diet: this.state.dietValue,
+      cuisine: this.state.cuisineValue,
+      excludeIngredients: this.state.excludeIngredientValue,
       setOpen: true,
     });
+    await this.checkIntolerances();
     await fetch(
       `/recipe/search/${this.state.diet}/${this.state.excludeIngredients}/${this.state.intolerances}/${this.state.cuisine}`
     )
@@ -147,8 +159,21 @@ export default class LandingPage extends Component {
       .then((response) => {
         this.setState({ recipes: response });
       });
+    await this.extraFetch();
   }
 
+  extraFetch() {
+    const array = this.state.recipes;
+    if (array.length !== 21) {
+      fetch(
+        `/recipe/search/0/0/0/0`
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          this.setState({ recipes: response });
+        });
+    }
+  }
   addIngredient = () => {
     this.setState({
       ingredients: [...this.state.ingredients, this.state.ingredient],

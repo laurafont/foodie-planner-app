@@ -157,7 +157,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[0].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[0].id +
@@ -169,7 +169,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[1].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[1].id +
@@ -181,7 +181,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[2].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[2].id +
@@ -193,7 +193,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[3].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[3].id +
@@ -205,7 +205,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[4].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[4].id +
@@ -217,7 +217,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[5].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[5].id +
@@ -229,7 +229,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[6].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[6].id +
@@ -268,7 +268,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[7].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[7].id +
@@ -280,7 +280,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[8].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[8].id +
@@ -292,7 +292,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[9].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[9].id +
@@ -304,7 +304,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[10].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[10].id +
@@ -316,7 +316,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[11].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[11].id +
@@ -328,7 +328,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[12].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[12].id +
@@ -340,7 +340,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[13].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[13].id +
@@ -379,7 +379,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[14].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[14].id +
@@ -391,7 +391,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[15].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[15].id +
@@ -403,7 +403,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[16].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[16].id +
@@ -415,7 +415,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[17].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[17].id +
@@ -427,7 +427,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[18].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[18].id +
@@ -439,7 +439,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[19].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[19].id +
@@ -451,7 +451,7 @@ class mealPlanner extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                       <Link to={`/recipe/${this.state.recipes[20].id}`}>
-                        <img
+                        <img width={90} height={90}
                           src={
                             "https://spoonacular.com/recipeImages/" +
                             this.state.recipes[20].id +
