@@ -1,3 +1,5 @@
+View demo here: http://foodie-planner-app.herokuapp.com/
+
 # foodieplanner README :memo:
 
 **foodieplanner** :tomato: is a platform where users can create meal plans of up to a week. Features allow users to generate either a shopping list or a recipe based on what they already have at home.
