@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "migrate": "node model/database.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "build": "cd client && yarn install && set NODE_OPTIONS=--openssl-legacy-provider && yarn build",
+    "migrate": "node model/database.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.11",

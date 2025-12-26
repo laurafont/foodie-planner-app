@@ -4,7 +4,7 @@ var router = express.Router();
 const fetch = require("node-fetch");
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.send("index", { title: "Express" });
+  res.status(200).send({ title: "Foodie Planner API" });
 });
 
 const OCD_API_KEY = process.env.API_KEY;
