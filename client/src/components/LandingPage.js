@@ -20,8 +20,6 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-
 import { Link } from "react-router-dom";
 
 export default class LandingPage extends Component {
@@ -160,11 +158,12 @@ export default class LandingPage extends Component {
         this.setState({ recipes: response });
       });
     await this.extraFetch();
+    console.log(this.state.recipes);
   }
 
   extraFetch() {
-    const array = this.state.recipes.results;
-    if (array.length !== 21) {
+    const array = this.state.recipes?.results;
+    if (!array || array.length !== 21) {
       fetch(
         `/recipe/search/0/0/0/0`
       )

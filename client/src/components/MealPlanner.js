@@ -10,22 +10,52 @@ import Container from "@material-ui/core/Container";
 class mealPlanner extends React.Component {
   constructor(props) {
     super(props);
+    const recipes = this.props.location?.state?.recipesPlanner?.results || [];
     this.state = {
-      recipes: this.props.location.state.recipesPlanner.results,
+      recipes: recipes,
       imgExt: [],
+      loading: recipes.length === 0,
     };
   }
 
   componentDidMount() {
+    if (this.state.recipes.length === 0) return;
+    
     let imgExt = [];
     for (let i = 0; i < this.state.recipes.length; i++) {
-      let ext = this.state.recipes[i].image.split(".").pop();
+      let ext = this.state.recipes[i].image?.split(".").pop() || "jpg";
       imgExt.push(ext);
     }
-    this.setState({ imgExt: imgExt });
+    this.setState({ imgExt: imgExt, loading: false });
   }
 
   render() {
+    // Show message if no recipes data
+    if (this.state.loading || this.state.recipes.length < 21) {
+      return (
+        <Container>
+          <Box p={5}>
+            <Typography variant="h4">No meal plan available</Typography>
+            <Typography variant="body1">
+              Please go back to the home page and submit your preferences first.
+            </Typography>
+            <br />
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                style={{
+                  backgroundColor: "rgb(43, 137, 139)",
+                  color: "white",
+                }}
+              >
+                Go to Home
+              </Button>
+            </Link>
+          </Box>
+        </Container>
+      );
+    }
+
     return (
       <div>
         <Container>
@@ -40,7 +70,6 @@ class mealPlanner extends React.Component {
               <Grid
                 container
                 spacing={5}
-                container
                 direction="row"
                 justify="space-evenly"
                 alignItems="center"
@@ -164,6 +193,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[0]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -176,6 +206,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[1]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -188,6 +219,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[2]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -200,6 +232,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[3]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -212,6 +245,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[4]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -224,6 +258,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[5]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -236,6 +271,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[6]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -245,7 +281,6 @@ class mealPlanner extends React.Component {
               <Grid
                 container
                 spacing={3}
-                container
                 direction="row"
                 justify="space-evenly"
                 alignItems="center"
@@ -275,6 +310,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[7]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -287,6 +323,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[8]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -299,6 +336,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[9]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -311,6 +349,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[10]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -323,6 +362,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[11]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -335,6 +375,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[12]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -347,6 +388,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[13]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -356,7 +398,6 @@ class mealPlanner extends React.Component {
               <Grid
                 container
                 spacing={3}
-                container
                 direction="row"
                 justify="space-evenly"
                 alignItems="center"
@@ -386,6 +427,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[14]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -398,6 +440,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[15]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -410,6 +453,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[16]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -422,6 +466,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[17]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -434,6 +479,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[18]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -446,6 +492,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[19]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>
@@ -458,6 +505,7 @@ class mealPlanner extends React.Component {
                             "-90x90." +
                             this.state.imgExt[20]
                           }
+                          alt="Recipe"
                         />
                       </Link>
                     </Grid>

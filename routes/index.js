@@ -23,14 +23,28 @@ router.get("/recipe/:id", function (req, res) {
 
 //RECIPE GENERATOR
 router.get("/recipe/findByIngredients/:ingredients", function (req, res) {
+  const ingredients = req.params.ingredients;
+  console.log("Searching recipes with ingredients:", ingredients);
+  
   fetch(
-    `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&number=12&apiKey=${OCD_API_KEY}`
+    `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${encodeURIComponent(ingredients)}&number=12&ranking=2&apiKey=${OCD_API_KEY}`
   )
-    .then((res) => res.json())
-    .then((data) => {
-      res.send(data);
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`API returned ${response.status}`);
+      }
+      return response.json();
     })
-    .catch((err) => res.send(err));
+    .then((data) => {
+      if (Array.isArray(data)) {
+        res.send(data);
+      } else {
+        res.send([]);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ error: err.message, results: [] });
+    });
 });
 
 // SHOPPING LIST
@@ -60,14 +74,37 @@ router.get("/recipe/:id/ingredientWidgetHTML", function (req, res) {
 router.get(
   "/recipe/search/:diet/:excludeIngredients/:intolerances/:cuisine",
   function (req, res) {
+    // Build query parameters, excluding "0" values
+    const params = new URLSearchParams();
+    params.append("apiKey", OCD_API_KEY);
+    params.append("number", "21");
+    params.append("addRecipeInformation", "true");
+    
+    if (req.params.diet && req.params.diet !== "0") {
+      params.append("diet", req.params.diet);
+    }
+    if (req.params.excludeIngredients && req.params.excludeIngredients !== "0") {
+      params.append("excludeIngredients", req.params.excludeIngredients);
+    }
+    if (req.params.intolerances && req.params.intolerances !== "0") {
+      params.append("intolerances", req.params.intolerances);
+    }
+    if (req.params.cuisine && req.params.cuisine !== "0") {
+      params.append("cuisine", req.params.cuisine);
+    }
+
     fetch(
-      `https://api.spoonacular.com/recipes/search?diet=${req.params.diet}&excludeIngredients=${req.params.excludeIngredients}&intolerances=${req.params.intolerances}&cuisine=${req.params.cuisine}&number=21&apiKey=${OCD_API_KEY}`
+      `https://api.spoonacular.com/recipes/complexSearch?${params.toString()}`
     )
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => {
-        res.send(data);
+        // Transform response to match expected format
+        res.send({ results: data.results || [] });
       })
-      .catch((err) => res.send(err));
+      .catch((err) => {
+        console.error("API Error:", err);
+        res.status(500).send({ error: err.message, results: [] });
+      });
   }
 );
 

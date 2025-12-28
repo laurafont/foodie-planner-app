@@ -134,6 +134,7 @@ export default class ShoppingList extends Component {
                           "https://spoonacular.com/cdn/ingredients_100x100/" +
                           ingredient.image
                         }
+                        alt={ingredient.name}
                       />
                       <p>
                         {ingredient.amount.value} {ingredient.amount.unit}
