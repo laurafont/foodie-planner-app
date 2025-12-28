@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    backend:
+        build: .
+        image: doublebyte/foodieplanner-be:latest
+        container_name: "backend"
+
+    frontend:
+        build: ./client
+        stdin_open: true
+        ports:
+            - 3000:3000
+        depends_on:
+            - "backend"
+        image: doublebyte/foodieplanner-fe:latest
+        container_name: "frontend"
