@@ -14,7 +14,8 @@ RUN cd client && npm install
 # Copy all source files
 COPY . .
 
-# Build the React frontend
+# Build the React frontend with legacy OpenSSL support
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN cd client && npm run build
 
 # Expose port
